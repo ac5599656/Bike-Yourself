@@ -429,6 +429,9 @@ html, body {
       color: sandybrown;
       display: none;
   }
+  .container{
+      text-align: center;
+  }
 
   /* @media only screen and (max-width: 640px) {
      #map{
