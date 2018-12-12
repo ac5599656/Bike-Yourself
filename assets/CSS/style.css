@@ -366,7 +366,7 @@ html, body {
       color: #FFF;
   }
   #map {
-    max-width: 60%;  
+    width :auto; 
     position: relative;
     margin-left: 2em;
     margin-right: 2em; 
@@ -442,7 +442,6 @@ html, body {
   /* .link-item-delete{
       text-align: center;
   } */
-
 
 
 
