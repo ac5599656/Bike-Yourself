@@ -13,16 +13,6 @@ html, body {
     font: 100% Nanum Gothic, sans-serif;
     margin: 0;
   }
-    
-  /* .TucsonImage {
-    background-image: url("https://images.onepixel.com/4b52f26d-38cf-70fc-3540-31c172b49ef4_1000.jpg?auto=format&q=55&mark=watermark%2Fcenter-v5.png&markalign=center%2Cmiddle&h=364&markalpha=20&s=ce0f5096b407ea1190700b78cf25bfc0");
-    background-color: #cccccc;
-    height: 700px;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    position: relative;
-  } */
   .frontText {
     font-family: unset;
     text-align: center;
@@ -84,7 +74,7 @@ html, body {
     .tucsonImage {
       background-image: url("https://images.onepixel.com/4b52f26d-38cf-70fc-3540-31c172b49ef4_1000.jpg?auto=format&q=55&mark=watermark%2Fcenter-v5.png&markalign=center%2Cmiddle&h=364&markalpha=20&s=ce0f5096b407ea1190700b78cf25bfc0");
       background-color: #cccccc;
-      height: 700px;
+      height: 100vh;
       background-position: center;
       background-repeat: no-repeat;
       background-size: cover;
@@ -141,12 +131,32 @@ html, body {
         background-color: #E2C6C4;
         display: none;
       }
+      .dropdown{
+          width:30%;
+          display:none;
+      }
      #form-panel {
         background-color: rgba(11, 79, 189, 0.514); 
         opacity: 0.8; 
         border: 3px solid darkgrey; 
         padding-top: 10px;
         border-radius: 10px;
+      }
+    
+      legend{
+          color: white;
+      }
+      .form-input::placeholder {
+        color: white;
+        opacity: 1; /* Firefox */
+      }
+      
+      .form-input:-ms-input-placeholder { /* Internet Explorer 10-11 */
+       color: white;
+      }
+      
+      .form-input::-ms-input-placeholder { /* Microsoft Edge */
+       color: white;
       }
   
      /* Buzz button CSS */
@@ -321,7 +331,8 @@ html, body {
   background-color: aquamarine
   }
   .buttonContainer {
-     background-color: #E2C6C4;
+    width: 100;  
+    background-color: #E2C6C4;
     display: none;
   }
   .results{
@@ -340,8 +351,8 @@ html, body {
    
   }
   #icon{
-      width: 90px;
-      height: 90px;
+      width: 60px;
+      height: 60px;
   }
   /* weather div styling */
   #weatherInfo {
@@ -355,22 +366,22 @@ html, body {
       color: #FFF;
   }
   #map {
-    width: auto;  
+    max-width: 60%;  
     position: relative;
     margin-left: 2em;
+    margin-right: 2em; 
     height: 70em;
     margin-right: 400px;
     border-radius: 10px;
    
   }
-  .secondpage{
-  display:none;
-  }
+ 
 
   .btn {
     background-color: #EF8B4B;
     border-color: #613a51;
     border-radius: 5px;
+    margin-bottom: 1em;
     text-transform: bold;
     text-decoration: italic;
     text-shadow: 0 0.063em rgba(0, 0, 0, 0.3);
@@ -400,6 +411,37 @@ html, body {
     font-size: 12px;
     margin-bottom: 15px;
   }
+
+  .dropdown-item{
+    width: auto;  
+    white-space: pre-wrap; /* css-3 */    
+    white-space: -moz-pre-wrap; /* Mozilla, since 1999 */
+    white-space: -pre-wrap; /* Opera 4-6 */    
+    white-space: -o-pre-wrap; /*Opera 7*/    
+    word-break: break-word; /* Internet Explorer 5.5+ */
+  }
+
+  span.button-label{
+      
+      padding-right: 25px;
+  }
+
+  /* @media only screen and (max-width: 640px) {
+     #map{
+         max-width: 60%;
+         height: auto;
+     }
+
+     #right-panel{
+         max-width: 50%;
+     }
+
+
+  }    */
+
+  /* .link-item-delete{
+      text-align: center;
+  } */
 
 
 

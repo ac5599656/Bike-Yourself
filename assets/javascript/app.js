@@ -6,6 +6,7 @@ let currentReplacedOrigin;
 let currentDestination;
 let currentReplacedDest
 const linkArray = [];
+
 function submit() {
     $("#form, #form-panel").submit(function (event) {
         event.preventDefault();
@@ -13,6 +14,7 @@ function submit() {
         const googleApiKey = 'AIzaSyDzgrHg1NotksoCzY-i-E98LuqKE-SH4Fg';
         let someOriginInput = $(event.currentTarget).find("#start").val().trim();
         someOriginInput = someOriginInput.replace(/\s+/g, '');
+
         let origin = $(event.currentTarget).find("#start").val().trim();
         let replacedOrigin = origin.split(' ').join('+');
 
@@ -31,6 +33,8 @@ function submit() {
         currentDestination = $(event.currentTarget).find("#end").val().trim();
         currentReplacedDest = currentDestination.split(' ').join('+');
         console.log(currentReplacedDest);
+
+
 
 
         let queryURL = `https://maps.googleapis.com/maps/api/directions/json?origin=${someOriginInput}&destination=${someDestinationInput}&avoid=highways&mode=bicycling&key=${googleApiKey}`;
@@ -162,7 +166,10 @@ function weatherData() {
 
     });
 }
-
+function reset() {
+    $("#start").val().trim("");
+    $("#end").val().trim("");
+}
 function weatherResult(data) {
     let results = `  
     <div class="results">
@@ -199,6 +206,7 @@ function displaySearch() {
 }
 function showMap() {
     // $(".result").show();
+    $('.dropdown').show();
     $(".buttonContainer").show();
     $("#weatherInfo").show();
     $("#new-route-button").show();
@@ -218,7 +226,7 @@ function showMap() {
 $(document).on("click", '#save-route', function (event) {
 
     console.log('`saveRoute` ran');
-    const mapLink = `https://www.googel.com/maps/dir/?api=1&origin=${currentReplacedOrigin}&destination=${currentReplacedDest}&travelmode=bicycling`;
+    const mapLink = `https://www.google.com/maps/dir/?api=1&origin=${currentReplacedOrigin}&destination=${currentReplacedDest}&travelmode=bicycling`;
     console.log(mapLink);
     addItemToDropDown(mapLink);
     renderLinkList();
@@ -266,8 +274,8 @@ function generateItemElement(item, itemIndex, template) {
     return `
    <li class=" dropdown-item js-item-index-element" data-item-index="${itemIndex}">
     <a class="link-item" href= "${item.name}"}>${item.name}</a>
-    <div class="shopping-item-controls">
-     <button class="shopping-item-delete js-item-delete">
+    <div class="link-item-controls">
+     <button class="link-item-delete js-item-delete">
        <span class="button-label">delete</span>
      </button>
     </div>
@@ -289,7 +297,7 @@ function deleteItem(itemIndex) {
 }
 
 function handleDeleteItemClicked() {
-    // this function will be responsible for when users want to delete a shopping list
+    // this function will be responsible for when users want to delete a link list
     // item
 
     $('.dropdown-menu').on('click', '.js-item-delete', event => {

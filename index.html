@@ -16,27 +16,13 @@
 <body>
     <nav class="navbar navbar-expand-sm navbar-theme">
         <div class="container">
+
             <a class="navbar-brand" href="#">
                 <img class="LogoGif" src="https://cdn.dribbble.com/users/767710/screenshots/2319262/deliveroo_dribbble_bike_city_icon_800x600.gif">
             </a>
             <!-- <a class="navbar-brand" href="#">Tucson Bike Yourself</a> -->
         </div>
-        <div class="dropdown">
-            <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
-                aria-haspopup="true" aria-expanded="false">
-                Dropdown link
-            </a>
-
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                <!-- <li class="dropdown-item" href="#">Action</li>
-                    <li class="dropdown-item" href="#">Another action</li>
-                    <li class="dropdown-item" href="#">Something else here</li> -->
-            </div>
-        </div>
-
     </nav>
-
-
     <section class="landPage">
         <div class="tucsonImage">
             <div id="frontText">
@@ -53,7 +39,6 @@
                         <input type="destination" class="destination form-control" id="end" placeholder="Destination"
                             required>
                     </div>
-
                     <button type="submit" class="frontButton btn btn-primary">Click To Ride</button>
                 </form>
                 <div id="error"></div>
@@ -65,6 +50,13 @@
             <button type="submit" id="hide" class="btn btn-danger">Hide Weather</button>
             <button type="submit" id="show" class="btn btn-warning">Show Weather</button>
             <button id="save-route" class="btn">Save Route</button>
+            <div class="dropdown">
+                <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                    Saved Route links
+                </a>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink"></div>
+            </div>
         </div>
         <div class="row weatherFormDiv">
             <div class="col-md-6">
@@ -75,11 +67,11 @@
                 <legend> Bike Again</legend>
                 <div class="form-group">
                     <!-- <label for="start" id="begin1">Start</label> -->
-                    <input type="text" class="form-control" id="start" placeholder="start">
+                    <input type="text" class="form-control form-input" id="start" placeholder="start">
                 </div>
                 <div class="form-group">
                     <!-- <label for="destination" id="dest1">Destination</label> -->
-                    <input type="text" class="form-control" id="end" placeholder="Destination">
+                    <input type="text" class="form-control form-input" id="end" placeholder="Destination">
                 </div>
 
                 <button type="submit" class="secondButton btn btn-primary">Click To Ride Again</button>
@@ -87,9 +79,7 @@
             <div class="col-md-4"></div>
         </div>
 
-        <div id="right-panel">
-
-        </div>
+        <div id="right-panel"> </div>
         <div id="map"></div>
 
     </section>
