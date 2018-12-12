@@ -270,7 +270,8 @@ html, body {
     font-size: 12px;
   }
   #right-panel {
-    height: 100%;
+    height: 50%;
+    clear: both;
     border-radius: 10px;
     margin-right: 2em;
     margin-left: 2em;
@@ -307,7 +308,7 @@ html, body {
     margin-top: 20px;
   }
   .LogoGif{
-  z-index: -5;    
+  z-index: -18;    
   height:60px;
   width: 60px;
   position: relative;
@@ -366,7 +367,7 @@ html, body {
       color: #FFF;
   }
   #map {
-    width :auto; 
+    
     position: relative;
     margin-left: 2em;
     margin-right: 2em; 
@@ -422,8 +423,11 @@ html, body {
   }
 
   span.button-label{
-      
       padding-right: 25px;
+  }
+  .logo{
+      color: sandybrown;
+      display: none;
   }
 
   /* @media only screen and (max-width: 640px) {
@@ -443,5 +447,14 @@ html, body {
       text-align: center;
   } */
 
+  @media only screen and (max-width: 640px) {
+      #right-panel{
+        width: 100%;
+        float:none;
+        margin-right: 5em;
+        margin-left: 1em;
+      }
+      
 
+  }
 

@@ -72,9 +72,6 @@ function submit() {
 
 submit();
 
-
-
-
 function initMap(startCoord, endCoord) {
 
     let directionsDisplay = new google.maps.DirectionsRenderer;
@@ -206,6 +203,8 @@ function displaySearch() {
 }
 function showMap() {
     // $(".result").show();
+    $('.LogoGif').hide();
+    $('.logo').show();
     $('.dropdown').show();
     $(".buttonContainer").show();
     $("#weatherInfo").show();
