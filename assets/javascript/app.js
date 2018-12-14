@@ -1,6 +1,4 @@
 //https: cors - anywhere.herokuapp.com
-
-// let map;
 let currentOrigin;
 let currentReplacedOrigin;
 let currentDestination;
@@ -34,9 +32,7 @@ function submit() {
         currentReplacedDest = currentDestination.split(' ').join('+');
         console.log(currentReplacedDest);
 
-
-
-
+        reset();
         let queryURL = `https://maps.googleapis.com/maps/api/directions/json?origin=${someOriginInput}&destination=${someDestinationInput}&avoid=highways&mode=bicycling&key=${googleApiKey}`;
         console.log(queryURL);
 
@@ -71,7 +67,9 @@ function submit() {
 }
 
 submit();
-
+function reset() {
+    $('.form-input').val("");
+}
 function initMap(startCoord, endCoord) {
 
     let directionsDisplay = new google.maps.DirectionsRenderer;
@@ -88,7 +86,7 @@ function initMap(startCoord, endCoord) {
     directionsDisplay.setPanel(document.getElementById('right-panel'));
     calcRoute(start, end, directionsService, directionsDisplay);
     map.setMapTypeId('hybrid');
-    let street = google.maps.StreetViewPanorama;
+
     let trafficLayer = new google.maps.TrafficLayer();
     trafficLayer.setMap(map);
     // Dark green routes indicated dedicated bicycle routes. Light green routes indicate streets with dedicated “bike lanes.” Dashed routes indicate streets or paths otherwise recommended for bicycle usage.
@@ -126,7 +124,6 @@ function showMap() {
 $('#new-route-button').on('click', function () {
     $("#form-panel").show();
     $("#new-route-button").hide();
-
 })
 
 
@@ -163,10 +160,7 @@ function weatherData() {
 
     });
 }
-function reset() {
-    $("#start").val().trim("");
-    $("#end").val().trim("");
-}
+
 function weatherResult(data) {
     let results = `  
     <div class="results">
@@ -203,7 +197,7 @@ function displaySearch() {
 }
 function showMap() {
     // $(".result").show();
-    $('.LogoGif').hide();
+    $('.logoGif').hide();
     $('.logo').show();
     $('.dropdown').show();
     $(".buttonContainer").show();
@@ -239,11 +233,11 @@ function addItemToDropDown(mapLink) {
 
 function renderLinkList() {
     // render the shopping list in the DOM
-    console.log('`renderShoppingList` ran');
-    const shoppingListItemsString = generateLinkItemsString(linkArray);
+    console.log('`renderLinkList` ran');
+    const listItemsString = generateLinkItemsString(linkArray);
 
     // insert that HTML into the DOM
-    $('.dropdown-menu').html(shoppingListItemsString);
+    $('.dropdown-menu').html(listItemsString);
 }
 
 function generateLinkItemsString(linkArray) {
@@ -272,7 +266,7 @@ function toggleCheckedForListItem(itemIndex) {
 function generateItemElement(item, itemIndex, template) {
     return `
    <li class=" dropdown-item js-item-index-element" data-item-index="${itemIndex}">
-    <a class="link-item" href= "${item.name}"}>${item.name}</a>
+    <a class="link-item" href= "${item.name}"target="_blank"}>${item.name}</a>
     <div class="link-item-controls">
      <button class="link-item-delete js-item-delete">
        <span class="button-label">delete</span>
@@ -310,7 +304,6 @@ function handleDeleteItemClicked() {
 
 function handleShoppingList() {
     renderLinkList();
-    // saveNewRoute();
     handleItemCheckClicked();
     handleDeleteItemClicked();
 }
