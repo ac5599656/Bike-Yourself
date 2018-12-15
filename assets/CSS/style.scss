@@ -45,27 +45,13 @@ body {
       @extend %button-style;
   }
   %secondpage-style{
-      background-color: #ffe6b3
+      background-color: beige
   }
   .secondpage{
       @extend %secondpage-style;
   }
-  %form-panel-style{
-      background-color: white;
-  }
-  #form-panel{
-      @extend %form-panel-style;
-  }
-  #right-panel{
-      @extend %form-panel-style;
-  }
-  %secondButton-style{
-    border-radius: 16px;
-    background-color: indianred
-  }
-  .secondButton{
-      @extend %secondButton-style;
-  }
+ 
+
 // $font-stack: "Ubuntu", sans-serif;
 $primarycolor: #EF8B4B;
 $secondarycolor: #0F1D37;;

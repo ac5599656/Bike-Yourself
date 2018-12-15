@@ -17,11 +17,6 @@ body {
   transform: translate(-50%, -50%);
   color: white;
 }
-.FrontButton{
-    border: 2px solid bisque;
-    border-radius: 16px;
-    background-color: indianred
-}
 .weatherBtn {
     border: 2px solid bisque;
     border-radius: 16px;
@@ -76,23 +71,7 @@ body {
     color: white;
      
 }
-.secondButton {
-        border-radius: 16px;
-        background-color: indianred;
-}
-.frontButton {
-  background-color: maroon;
-  font-size: 20px;
-  border: none;
-  color: antiquewhite;
-  padding: 5px 30px 38px 30px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  margin: 4px 2px;
-  cursor: pointer;
-  border-radius: 35px;
-}
+
 #dest, #begin {
   font-size: 25px;
   color: white;
@@ -265,9 +244,7 @@ legend{
       from {left: 0px;}
       to {left: 770px;}
   }
-  .dropDownMenuButton{
-  background-color: aquamarine
-  }
+  
   .buttonContainer {
     width: 100;  
     background-color: beige;

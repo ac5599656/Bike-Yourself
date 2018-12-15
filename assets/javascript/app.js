@@ -4,7 +4,8 @@ let currentReplacedOrigin;
 let currentDestination;
 let currentReplacedDest
 const linkArray = [];
-
+//when the first /second form is submit, it calls out the Google Direction API and converts the start and end destination into
+//longitude and latitude.  It passes this information to the initMap to render the route and and traffic on the map.
 function submit() {
     $("#form, #form-panel").submit(function (event) {
         event.preventDefault();
@@ -67,9 +68,11 @@ function submit() {
 }
 
 submit();
+//reset form
 function reset() {
     $('.form-input').val("");
 }
+//call the map function to render the route and traffic on the map
 function initMap(startCoord, endCoord) {
 
     let directionsDisplay = new google.maps.DirectionsRenderer;
@@ -93,7 +96,7 @@ function initMap(startCoord, endCoord) {
     let bikeLayer = new google.maps.BicyclingLayer();
     bikeLayer.setMap(map);
 }
-
+//calcuate bike route
 function calcRoute(start, end, directionsService, directionsDisplay) {
     let request = {
         origin: start,
@@ -109,25 +112,13 @@ function calcRoute(start, end, directionsService, directionsDisplay) {
     $("#right-panel").empty();
 
 }
-
-function showMap() {
-    $(".result").show();
-    $(".buttonContainer").show();
-    $("#right-panel").css('display');
-    $(".map").css('display', 'block');
-    $(".tucsonImage").addClass('hide-bg');
-    $(".tucsonImage").hide();
-    // newButton();
-}
-
-// function newButton() {
 $('#new-route-button').on('click', function () {
     $("#form-panel").show();
     $("#new-route-button").hide();
 })
 
 
-
+//open weather data
 function weatherData() {
     let URL = "https://api.openweathermap.org/data/2.5/weather";
     let key = "58c218efb9618338868686af4eb8ad1e";
@@ -154,13 +145,9 @@ function weatherData() {
 
         },
 
-
-        // if use submits a city thats not in the api it runs an error function
-
-
     });
 }
-
+//show weather data 
 function weatherResult(data) {
     let results = `  
     <div class="results">
@@ -175,17 +162,17 @@ function weatherResult(data) {
     </div>`;
     $("#weatherInfo").html(results);
 }
-
+//hide weather info
 $("#hide").click(function () {
     $("#weatherInfo").hide();
 });
-
+//show weather info
 $("#show").click(function () {
     $("#weatherInfo").show();
 });
-
+//display first page
 function displaySearch() {
-    // $(".result").hide();
+
     $(".buttonContainer").hide();
     $("#weatherInfo").hide();
     $("#new-route-button").hide();
@@ -195,8 +182,9 @@ function displaySearch() {
     $("body").removeClass(".secondpage");
     $("body").addClass(".landpage");
 }
+//display the second page
 function showMap() {
-    // $(".result").show();
+
     $('.logoGif').hide();
     $('.logo').show();
     $('.dropdown').show();
@@ -208,14 +196,13 @@ function showMap() {
     $("#save-route").show();
     $("#right-panel").css('display');
     $(".map").css('display', 'block');
-    // $(".tucsonImage").addClass('hide-bg');
     $(".secondpage").show();
     $("body").removeClass(".landpage");
     $("body").addClass(".seconpage")
     $(".tucsonImage").hide();
-    // newButton();
-}
 
+}
+//gets the start and destination to be part of the route link
 $(document).on("click", '#save-route', function (event) {
 
     console.log('`saveRoute` ran');
@@ -224,22 +211,22 @@ $(document).on("click", '#save-route', function (event) {
     addItemToDropDown(mapLink);
     renderLinkList();
 });
-//}
 
+//push the maplink into the linkArray
 function addItemToDropDown(mapLink) {
     console.log(`Adding "${mapLink}" to link list`);
     linkArray.push({ name: mapLink, checked: false });
 }
 
 function renderLinkList() {
-    // render the shopping list in the DOM
+    // render the link list in the DOM
     console.log('`renderLinkList` ran');
     const listItemsString = generateLinkItemsString(linkArray);
 
     // insert that HTML into the DOM
     $('.dropdown-menu').html(listItemsString);
 }
-
+//generate string using the object in the linkArray
 function generateLinkItemsString(linkArray) {
     console.log("Generating link list element");
 
@@ -248,21 +235,15 @@ function generateLinkItemsString(linkArray) {
     return items.join("");
 
 }
+//when the dropdwon menu is clicked, getItemIndexFromElement and renderLinklist are called.
 function handleItemCheckClicked() {
     $('.dropdown-menu').on('click', `.js-item-toggle`, event => {
         console.log('`handleItemCheckClicked` ran');
         const itemIndex = getItemIndexFromElement(event.currentTarget);
-        toggleCheckedForListItem(itemIndex);
         renderLinkList();
     });
 }
-
-function toggleCheckedForListItem(itemIndex) {
-    console.log("Toggling checked property for item at index " + itemIndex);
-    linkArray[itemIndex].checked = !linkArray[itemIndex].checked;
-}
-
-
+//return a li with the map link and the delete button
 function generateItemElement(item, itemIndex, template) {
     return `
    <li class=" dropdown-item js-item-index-element" data-item-index="${itemIndex}">
@@ -274,19 +255,17 @@ function generateItemElement(item, itemIndex, template) {
     </div>
    </li>`;
 }
-
+//get index from the item
 function getItemIndexFromElement(item) {
     const itemIndexString = $(item)
         .closest('.js-item-index-element')
         .attr('data-item-index');
     return parseInt(itemIndexString, 10);
 }
-
+//delete the link
 function deleteItem(itemIndex) {
     console.log("Adding checked property for item at index " + itemIndex);
     linkArray.splice(itemIndex, 1);
-
-
 }
 
 function handleDeleteItemClicked() {
@@ -301,11 +280,11 @@ function handleDeleteItemClicked() {
 
     });
 }
-
-function handleShoppingList() {
+//calls out the renderLinkList, handleItemCheckClicked,and handleDeleteItemClick
+function handleLinkList() {
     renderLinkList();
     handleItemCheckClicked();
     handleDeleteItemClicked();
 }
-
-handleShoppingList();
+//call handleLinkList method
+handleLinkList();
