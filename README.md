@@ -7,7 +7,7 @@ https://ac5599656.github.io/project1_betaB/
 ## Screenshots
 
 ### Landing Page
-![](assets/images/landing)
+![](assets/images/landing_page.png)
 
 ### Result Page
 ![](assets/images/result.png)
