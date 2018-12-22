@@ -113,6 +113,21 @@ legend{
 .form-input::-ms-input-placeholder { /* Microsoft Edge */
   color: white;
 }
+.link-item-delete, .link-item-delete:link, .link-item-delete:visited {
+  background:white;
+  border-radius:3px;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
+  transform:scale(1);
+  transition: all .3s;
+}
+.link-item-delete:active {
+  box-shadow: 5px 5px 3px rgba(0, 0, 0, 0.3);
+  transform:scale(0.8);
+}
+.link-item-delete:hover {
+  box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.3);
+  transform:scale(1.1);
+}
   
 /* Buzz button CSS */
 @keyframes hvr-buzz-out {
@@ -199,6 +214,7 @@ legend{
 .weather li {
   float: right;
 }
+
 #right-panel select,
 #right-panel input {
     font-size: 15px;

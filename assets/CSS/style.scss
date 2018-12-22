@@ -28,31 +28,7 @@ body {
   #error{
       @extend %error-font;
   }
-  %button-style{
-    background-color: maroon;
-    font-size: 20px;
-    border: none;
-    color: antiquewhite;
-    padding: 5px 30px 38px 30px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    margin: 4px 2px;
-    cursor: pointer;
-    border-radius: 35px;
-  }
-  .frontButton {
-      @extend %button-style;
-  }
-  %secondpage-style{
-      background-color: beige
-  }
-  .secondpage{
-      @extend %secondpage-style;
-  }
- 
 
-// $font-stack: "Ubuntu", sans-serif;
 $primarycolor: #EF8B4B;
 $secondarycolor: #0F1D37;;
 @mixin btn-theme {
