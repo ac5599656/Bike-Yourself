@@ -2,7 +2,7 @@
 
 ## URL
 
-https://ac5599656.github.io/project1_betaB/
+https://ac5599656.github.io/Bike-Yourself/
 
 ## Screenshots
 
